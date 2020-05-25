@@ -1,4 +1,4 @@
-package org.leetCode.sum;
+package org.leetCode.questionone;
 
 
 import java.util.HashMap;
