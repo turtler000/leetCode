@@ -30,6 +30,14 @@ public class Questionfour {
      * 每次去掉较短数组的一半，直到递归结束
      *
      * 有点难顶，再想想办法
+     *
+     * 新思路：
+     * 二分法，分别二分，比较两次，每次舍弃某个数组一半，递归二分
+     * 难点在二分点
+     * 二分点在lenleft+lenright=(m+n+1)/2-m,m为较短数组
+     * 原因：emmmm
+     *
+     *
      */
     public static double findMedianSortedArrays_1(int[] nums1, int[] nums2) {
         int a = nums1.length,b=nums2.length;
