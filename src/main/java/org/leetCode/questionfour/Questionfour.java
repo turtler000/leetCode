@@ -18,11 +18,7 @@ import java.util.Arrays;
 public class Questionfour {
     //初始化默认1长2短
     public static double findMedianSortedArrays(int[] nums1, int[] nums2){
-        if(nums1.length>=nums2.length){
-            return findMedianSortedArrays_1(nums1,nums2);
-        }else {
-            return findMedianSortedArrays_1(nums2,nums1);
-        }
+      return 1;
     }
     /**
      *
@@ -32,28 +28,21 @@ public class Questionfour {
      * 有点难顶，再想想办法
      *
      * 新思路：
-     * 二分法，分别二分，比较两次，每次舍弃某个数组一半，递归二分
+     * 二分法，分别二分，比较两次
      * 难点在二分点
      * 二分点在lenleft+lenright=(m+n+1)/2-m,m为较短数组
-     * 原因：emmmm
+     * 原因：等于求第k大小的数，每次舍弃k/2个数向下取整
      *
+     * 现在思路：
+     * 取第k个大小的数
+     * 每次取两个数组前k/2 比较舍弃 传入新数组取第k/2个数
      *
      */
-    public static double findMedianSortedArrays_1(int[] nums1, int[] nums2) {
-        int a = nums1.length,b=nums2.length;
-        //若有一方为空，直接返回另一数组中位数
-        if (nums2 == null) {
-            return (double)(nums1[(nums1.length - 1) / 2] + nums1[nums1.length / 2]) / 2;
+    public static int[] findMedianSortedArrays_1(int[] nums1, int[] nums2,int k) {
+        if(k==1){
+            int[] ret ={nums1[0],nums2[0]};
         }
-        //若1最小值大于2最大值或1最大值小于2最小值，则舍弃2取1的一部分
-        if(nums1[0]>nums2[b-1]){
-            return findMedianSortedArrays_1(Arrays.copyOfRange(nums1,0,a-b-1),null);
-        }
-        if(nums1[a-1]<nums2[0]){
-            return findMedianSortedArrays_1(Arrays.copyOfRange(nums1,a-b-1,a-1),null);
-        }
-        //若有交叉，取较短数组一半，两数组同时截取
-
-        return 0;
+        return null;
     }
+
 }
