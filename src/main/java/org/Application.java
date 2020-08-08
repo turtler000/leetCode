@@ -1,11 +1,8 @@
 package org;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import static org.leetCode.questionSeven.QuestionSeven.reverse;
-import static org.leetCode.questionfour.Questionfour.findMedianSortedArrays;
-import static org.leetCode.questionthree.Solution.lengthOfLongestSubstring;
+import static org.leetCode.questionseven.QuestionSeven.reverse;
 
 /**
  * spring-boot startup
