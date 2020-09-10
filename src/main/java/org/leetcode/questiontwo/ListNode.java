@@ -1,4 +1,4 @@
-package org.leetCode.questiontwo;
+package org.leetcode.questiontwo;
 
 public class ListNode {
     int val;

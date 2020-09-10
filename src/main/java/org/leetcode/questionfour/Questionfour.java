@@ -1,6 +1,4 @@
-package org.leetCode.questionfour;
-
-import java.util.Arrays;
+package org.leetcode.questionfour;
 
 /**
  * 两个正序数组中位数

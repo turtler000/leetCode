@@ -1,4 +1,4 @@
-package org.leetCode.questionthree;
+package org.leetcode.questionthree;
 
 /**
  * 无重复字符最长子串
