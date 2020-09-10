@@ -14,13 +14,18 @@ import java.util.Map;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class OfferOne {
+    /**
+     * 使用哈希表
+     * @param
+     * @return
+     */
     public static int findRepeatNumber(int[] nums) {
         Map  map = new HashMap();
         for(int i =0;i<nums.length;i++){
-            if(map.containsValue(nums[i])){
+            if(map.containsKey(nums[i])){
                 return nums[i];
             }else {
-                map.put(i,nums[i]);
+                map.put(nums[i],i);
             }
         }
         return 0;
