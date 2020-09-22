@@ -1,6 +1,9 @@
 package org;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.sword.offerfour.ListNode;
+import org.sword.offerfour.OfferFour;
+import org.sword.offerthree.OfferThree;
 import org.sword.offertwo.OfferTwo;
 
 /**
@@ -9,14 +12,14 @@ import org.sword.offertwo.OfferTwo;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-        //int[}[} a = {{1, 4,  7, 11, 15},{2,   5,  8, 12, 19},{3,   6,  9, 16, 22},{10, 13, 14, 17, 24},{18, 21, 23, 26, 30}};
-        //int[}[} a = {};
-        int a[][] = {{1,4,7,11,15},
-                    {2,5,8,12,19},
-                    {3,6,9,16,22},
-                    {10,13,14,17,24},
-                    {18,21,23,26,30}};
-
-        System.out.println(OfferTwo.findNumberIn2DArray(a, 20));
+        ListNode listNode = new ListNode(3);
+        ListNode listNode_2 = new ListNode(5);
+        ListNode listNode_3 = new ListNode(1);
+        listNode.setNext(listNode_2);
+        listNode_2.setNext(listNode_3);
+        int[] nums = OfferFour.reversePrint(listNode);
+        for(int item:nums) {
+            System.out.println(item);
+        }
     }
 }
