@@ -1,5 +1,7 @@
 package org.sword.offerseven;
 
+import java.util.Arrays;
+
 /**
  * create by hanhuanyu ON 2020/9/22
  * 输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
@@ -37,26 +39,37 @@ public class OfferServen {
      * @param
      * @return
      */
+
+    /**
+     * 写了一半有事情，这次一定一次写完
+     * @param preorder
+     * @param inorder
+     * @return
+     */
     public static TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (preorder.length == 0 || inorder.length == 0) {
-            return null;
+        if(preorder.length==0||inorder.length==0){
+           return null;
         }
-        int rootVal = preorder[0];
-        TreeNode root = new TreeNode(rootVal);
-        if (preorder.length == 1) {
-            return root;
+        int root = preorder[0];
+        TreeNode nodeRoot = new TreeNode(root);
+        if(preorder.length==1){
+            return nodeRoot;
         }
-        int[] preordernext = new int[preorder.length - 1];
-        for (int i = 1; i < preorder.length - 1; i++) {
-            preordernext[i - 1] = preorder[i];
-        }
-        int p = 1;
-        for (int i = 0; i < inorder.length - 1; i++) {
-            if (inorder[i] == rootVal) {
-                p = i;
+        int inorderRoot = 0;
+        for (int i = 0; i < inorder.length; i++) {
+            if (inorder[i] == root) {
+                inorderRoot = i;
                 i = inorder.length;
             }
         }
-return  null;
+        //拆分,左闭右开
+        int[] preorderLeft = Arrays.copyOfRange(preorder,1,inorderRoot+1);
+        int[] preorderRight = Arrays.copyOfRange(preorder,inorderRoot+1,preorder.length);
+        int[] inorderLeft = Arrays.copyOfRange(inorder,0,inorderRoot);
+        int[] inorderRight = Arrays.copyOfRange(inorder,inorderRoot+1,preorder.length);
+        nodeRoot.left = buildTree(preorderLeft,inorderLeft);
+        nodeRoot.right = buildTree(preorderRight,inorderRight);
+        return nodeRoot;
     }
+
 }

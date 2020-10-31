@@ -1,10 +1,11 @@
 package org;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.sword.offerfour.ListNode;
-import org.sword.offerfour.OfferFour;
-import org.sword.offerthree.OfferThree;
-import org.sword.offertwo.OfferTwo;
+import org.sword.offerseven.OfferServen;
+import org.sword.offerseven.TreeNode;
+
+import java.util.Arrays;
+import java.util.Random;
 
 /**
  * spring-boot startup
@@ -12,14 +13,12 @@ import org.sword.offertwo.OfferTwo;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-        ListNode listNode = new ListNode(3);
-        ListNode listNode_2 = new ListNode(5);
-        ListNode listNode_3 = new ListNode(1);
-        listNode.setNext(listNode_2);
-        listNode_2.setNext(listNode_3);
-        int[] nums = OfferFour.reversePrint(listNode);
-        for(int item:nums) {
-            System.out.println(item);
-        }
+//        int a[] = {1, 2, 3, 4, 5};
+//        int b[] = Arrays.copyOfRange(a, 2, 8);
+        int preorder[] = {3,9,20,15,7};
+        int inorder[] = {9,3,15,20,7};
+        TreeNode treeNode = OfferServen.buildTree(preorder,inorder);
+        System.out.println(treeNode.val);
+
     }
 }
