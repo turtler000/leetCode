@@ -1,14 +1,7 @@
 package org;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.sword.offereight.CQueue;
-import org.sword.offerseven.OfferServen;
-import org.sword.offerseven.TreeNode;
-import org.sword.offerten_1.OfferTenA;
-
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Stack;
+import org.sword.offerten.OfferTenA;
 
 /**
  * spring-boot startup

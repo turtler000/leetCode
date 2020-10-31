@@ -1,4 +1,4 @@
-package org.sword.offerten_1;
+package org.sword.offerten;
 
 /**
  * create by hanhuanyu ON 2020/10/31
