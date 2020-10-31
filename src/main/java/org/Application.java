@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.sword.offereight.CQueue;
 import org.sword.offerseven.OfferServen;
 import org.sword.offerseven.TreeNode;
+import org.sword.offerten_1.OfferTenA;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -16,15 +17,8 @@ import java.util.Stack;
 public class Application {
     public static void main(String[] args) {
 
-        CQueue  cQueue = new CQueue();
-        int a =cQueue.deleteHead();
-        cQueue.appendTail(3);
-        cQueue.appendTail(4);
-        int b =cQueue.deleteHead();
-        int c =cQueue.deleteHead();
-System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
+System.out.println(OfferTenA.fib(99));
+  //      System.out.println(OfferTenA.fib_1(50));
 
     }
 }
