@@ -84,16 +84,11 @@ public class Exist {
     public static boolean exist_1(char[][] board, String word) {
         char[] a = word.toCharArray();
         char[] atemp = Arrays.copyOfRange(a , 1, a.length );
-        char[][] temp ;
-        char token = '!';
         // 找起点
         for(int i =0;i<=board.length-1;i++){
             for(int j = 0;j<=board[0].length-1;j++){
                 if (board[i][j]==a[0]){
-                    //todo 深拷贝
-                    temp = board.clone();
-                    temp[i][j] = token;
-                    if (isExist(temp, atemp, i, j)) {
+                    if (isExist(board, atemp, i, j)) {
                         return true;
                     }
                 }
@@ -103,17 +98,16 @@ public class Exist {
     }
         //找到起点，图的深度遍历
     public static boolean isExist(char[][] board, char[] word, int colum, int row) {
+        char temp  = board[colum][row];
+        board[colum][row] = '!';
         if(word.length==0){
             return true;
         }
-        char[][] temp;
         char[] wordTemp = Arrays.copyOfRange(word,1,word.length);
         //上边的点
         if(colum-1>=0){
             if(board[colum-1][row]!='!'&&board[colum-1][row]==word[0]){
-               temp = board;
-               temp[colum-1][row] ='!';
-               if(isExist(temp,wordTemp,colum-1,row)){
+               if(isExist(board,wordTemp,colum-1,row)){
                    return true;
                }
             }
@@ -121,9 +115,7 @@ public class Exist {
         //下边的点
         if(colum+1<=board.length-1){
             if(board[colum+1][row]!='!'&&board[colum+1][row]==word[0]){
-                temp = board;
-                temp[colum+1][row] ='!';
-                if(isExist(temp,wordTemp,colum+1,row)){
+                if(isExist(board,wordTemp,colum+1,row)){
                     return true;
                 }
             }
@@ -131,9 +123,7 @@ public class Exist {
         //左边的点
         if(row-1>=0){
             if(board[colum][row-1]!='!'&&board[colum][row-1]==word[0]){
-                temp = board;
-                temp[colum][row-1] ='!';
-                if(isExist(temp,wordTemp,colum,row-1)){
+                if(isExist(board,wordTemp,colum,row-1)){
                     return true;
                 }
             }
@@ -141,13 +131,12 @@ public class Exist {
         //右边的点
         if(row+1<=board[0].length-1){
             if(board[colum][row+1]!='!'&&board[colum][row+1]==word[0]){
-                temp = board;
-                temp[colum][row+1] ='!';
-                if(isExist(temp,wordTemp,colum,row+1)){
+                if(isExist(board,wordTemp,colum,row+1)){
                     return true;
                 }
             }
         }
+        board[colum][row] = temp;
         return false;
     }
 }

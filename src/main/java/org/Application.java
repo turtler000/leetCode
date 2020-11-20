@@ -17,5 +17,6 @@ public class Application {
       char[][] board1 ={{'C','A','A'},{'A','A','A'},{'B','C','D'}};
       String word1= "AAB";
 System.out.println(Exist.exist_1(board1,word1));
+
     }
 }
