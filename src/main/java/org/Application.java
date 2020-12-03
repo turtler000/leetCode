@@ -1,6 +1,7 @@
 package org;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.sword.offerfourteen.OfferFourteen;
 import org.sword.offerthirteen.OfferThirteen;
 
 /**
@@ -9,8 +10,7 @@ import org.sword.offerthirteen.OfferThirteen;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-        int a = 739;
-        System.out.println(OfferThirteen.movingCount(3,1,0));
+        System.out.println(OfferFourteen.cuttingRope(8));
 
     }
 }

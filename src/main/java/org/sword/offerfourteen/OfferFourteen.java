@@ -26,4 +26,27 @@ package org.sword.offerfourteen;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class OfferFourteen {
+
+    public static int cuttingRope(int n) {
+        if(n==2){
+            return 1;
+        }
+        if(n==3){
+            return 2;
+        }
+        int ret = 1;
+        while(n!=0) {
+            if (n != 4&&n!=2) {
+                ret = ret * 3;
+                n = n - 3;
+            } else if (n  == 4) {
+                ret = ret * 4;
+                n = 0;
+            } else if(n == 2){
+                ret = ret*2;
+                n=0;
+            }
+        }
+        return  ret;
+    }
 }
