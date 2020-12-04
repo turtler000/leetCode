@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.sword.offerfifteen.OfferFifteen;
 import org.sword.offerfourteen.OfferFourteen;
 import org.sword.offerfourteen.OfferFourteenExt;
+import org.sword.offersixteen.OfferSixteen;
 import org.sword.offerthirteen.OfferThirteen;
 
 /**
@@ -12,8 +13,9 @@ import org.sword.offerthirteen.OfferThirteen;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-String a = "11111111111111111111111111111101";
-System.out.println(Integer.valueOf(a,10));
-      System.out.println(OfferFifteen.hammingWeight(8));
+
+      System.out.println(OfferSixteen.myPow(3,-4));
+      double a =0.012345679012345678;
+      System.out.println(1/a);
     }
 }
