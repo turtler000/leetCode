@@ -1,6 +1,8 @@
 package org;
 
+import org.common.ListNode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.sword.offereighteen.OfferEighteen;
 import org.sword.offerfifteen.OfferFifteen;
 import org.sword.offerfourteen.OfferFourteen;
 import org.sword.offerfourteen.OfferFourteenExt;
@@ -15,10 +17,11 @@ import org.sword.offerthirteen.OfferThirteen;
 public class Application {
     public static void main(String[] args) {
 
-//      System.out.println(OfferSixteen.myPow(3,-4));
-//      double a =0.012345679012345678;
-//      System.out.println(1/a);
-        int[] ret = OfferSeventeen.printNumbers(1);
-        System.out.println(ret.length);
+        ListNode listNode = new ListNode(4);
+        listNode.setNext(new ListNode(5));
+        listNode.getNext().setNext(new ListNode(1));
+        listNode.getNext().getNext().setNext(new ListNode(9));
+        ListNode ret = OfferEighteen.deleteNode(listNode,9);
+        System.out.println(ret.getVal());
     }
 }
