@@ -1,11 +1,9 @@
 package org;
 
+import org.common.ListNode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.sword.offer_21.Solution;
-import org.sword.offernignteen.OfferNignteen;
-import org.weekends.week_218.Binary;
-import org.weekends.week_218.Goal;
-import org.weekends.week_218.Knum;
+import org.sword.offer_22.Solution;
+
 
 /**
  * spring-boot startup
@@ -13,10 +11,12 @@ import org.weekends.week_218.Knum;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-int[] a= {3,1,3,4,3,3,4,2,3,7,9};
-int[] b= {1,11,4};
-int[] c ={8,10,3,20,12,4,10,8,4,0,5,17,7,20,3};
-int[] n = Solution.exchange_1(c);
-System.out.println(n);
+ListNode l = new ListNode(5);
+l.next=new ListNode(4);
+l.next.next=new ListNode(3);
+l.next.next.next=new ListNode(2);
+l.next.next.next.next = new ListNode(1);
+ListNode s = Solution.getKthFromEnd(l,5);
+System.out.println(s.val);
     }
 }
