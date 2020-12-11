@@ -21,10 +21,23 @@ import org.common.ListNode;
 public class Solution {
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode ret = new ListNode(-1),temp = ret;
-        while(l1!=null&&l2!=null){
-
+        while(l1!=null&&l2!=null) {
+            if (l1.val >= l2.val) {
+                ret.next = l2;
+                l2 = l2.next;
+                ret = ret.next;
+            } else {
+                ret.next = l1;
+                l1 = l1.next;
+                ret = ret.next;
+            }
         }
-        return  ret;
+            if(l1==null){
+                ret.next = l2;
+            }else{
+                ret.next = l1;
+            }
+        return  temp.next;
     }
 
     public ListNode mergeTwoLists_1(ListNode l1, ListNode l2) {
