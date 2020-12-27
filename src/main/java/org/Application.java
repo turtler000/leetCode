@@ -2,7 +2,8 @@ package org;
 
 import org.common.TreeNode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.sword.offer_27.Solution;
+import org.weekends.week_221.Solution_1;
+import org.weekends.week_221.Solution_2;
 
 
 /**
@@ -11,14 +12,10 @@ import org.sword.offer_27.Solution;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-        TreeNode A = new TreeNode(1);
-        A.left = new TreeNode(2);
-        A.right = new TreeNode(3);
-        A.left.right = new TreeNode(4);
-        A.right.left = new TreeNode(1);
-        A.right.right = new TreeNode(0);
-        TreeNode x = Solution.mirrorTree(A);
-        System.out.println(x);
+int[] apples = {1,2,3,5,2};
+int[] days = {3,2,1,4,2};
+int ans = Solution_2.eatenApples(apples,days);
+System.out.println(ans);
     }
 }
 
