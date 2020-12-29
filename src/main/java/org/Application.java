@@ -2,8 +2,7 @@ package org;
 
 import org.common.TreeNode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.weekends.week_221.Solution_1;
-import org.weekends.week_221.Solution_2;
+import org.sword.offer_28.Solution;
 
 
 /**
@@ -12,10 +11,15 @@ import org.weekends.week_221.Solution_2;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-int[] apples = {1,2,3,5,2};
-int[] days = {3,2,1,4,2};
-int ans = Solution_2.eatenApples(apples,days);
-System.out.println(ans);
+        TreeNode n = new TreeNode(1);
+        n.right = new TreeNode(2);
+        n.left = new TreeNode(2);
+        n.left.left = new TreeNode(3);
+        n.left.right = new TreeNode(4);
+        n.right.left = new TreeNode(4);
+        n.right.right = new TreeNode(3);
+        boolean a = Solution.isSymmetric(n);
+        System.out.println(a);
     }
 }
 
