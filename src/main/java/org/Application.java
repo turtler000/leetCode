@@ -2,7 +2,7 @@ package org;
 
 import org.common.TreeNode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.sword.offer_28.Solution;
+import org.sword.offer_26.Solution;
 
 
 /**
@@ -11,14 +11,16 @@ import org.sword.offer_28.Solution;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-        TreeNode n = new TreeNode(1);
-        n.right = new TreeNode(2);
-        n.left = new TreeNode(2);
-        n.left.left = new TreeNode(3);
-        n.left.right = new TreeNode(4);
-        n.right.left = new TreeNode(4);
-        n.right.right = new TreeNode(3);
-        boolean a = Solution.isSymmetric(n);
+        TreeNode A = new TreeNode(3);
+        A.right = new TreeNode(4);
+        A.left = new TreeNode(5);
+        A.left.left = new TreeNode(1);
+        A.left.right = new TreeNode(2);
+//        n.right.left = new TreeNode(4);
+//        n.right.right = new TreeNode(3);
+        TreeNode B = new TreeNode(5);
+        B.left = new TreeNode(1);
+        boolean a = Solution.isSubStructure(A,B);
         System.out.println(a);
     }
 }

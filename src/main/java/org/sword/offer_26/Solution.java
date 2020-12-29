@@ -30,25 +30,16 @@ import org.common.TreeNode;
 public class Solution {
     public static boolean isSubStructure(TreeNode A, TreeNode B){
         if(B==null){
-            return false;
-        }
-        return isSubStructure_0(A,B);
-    }
-    public static boolean isSubStructure_0(TreeNode A, TreeNode B) {
-        if(A==null&&B==null){
             return true;
         }else if(A==null&&B!=null){
             return false;
-        }else if(A!=null&&B==null){
-            return true;
         }else {
-        if(A.val!=B.val){
-            return isSubStructure(A.left,B)||isSubStructure(A.right,B);
-        }else{
-            return isSubStructure(A.left,B.left)&&isSubStructure(A.right,B.right);
+            if (A.val != B.val) {
+                return isSubStructure(A.left, B) || isSubStructure(A.right, B);
+            } else {
+                return isSubStructure(A.left, B.left) && isSubStructure(A.right, B.right);
+            }
         }
-        }
-
     }
     public static boolean isSameTree(TreeNode A,TreeNode B){
         if(A==null&&B==null){
