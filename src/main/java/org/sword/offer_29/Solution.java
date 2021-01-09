@@ -23,26 +23,50 @@ import java.util.List;
  */
 public class Solution {
     //每次搞一圈，直到搞完
-    public int[] spiralOrder(int[][] matrix) {
+    public static int[] spiralOrder(int[][] matrix) {
         if (matrix == null) {
             return null;
         }
         int row = matrix.length;
+        if (row == 0) {
+            return new int[0];
+        }
         int colum = matrix[0].length;
-        int length = row * colum;
+        if (colum == 0) {
+            return new int[0];
+        }
         List<Integer> ret = new ArrayList();
-        for (int i = 0; i <= Math.min(row, colum)/2; i++) {
+        for (int i = 0; i < (Math.min(row, colum) + 1) / 2; i++) {
             ret.addAll(circle(matrix, i));
         }
         return ret.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    public List circle(int[][] matrix, int i) {
+    public static List circle(int[][] matrix, int m) {
         List<Integer> ret = new ArrayList();
+        int row = matrix.length;
+        int colum = matrix[0].length;
+        //上
+        for (int i = 0; i < colum - 2 * m; i++) {
+            ret.add(matrix[m][m + i]);
+        }
+        if (row - 2 * m == 1) {
+            return ret;
+        }
+        //右
+        for (int i = 0; i < row - 2 * m - 2; i++) {
+            ret.add(matrix[m + 1 + i][colum - m  - 1]);
+        }
+        //下
+        for (int i = 0; i < colum - 2 * m; i++) {
+            ret.add(matrix[row - m -1][colum - m - i]);
+        }
+        //左
+        if (colum - 2 * m > 1) {
+            for (int i = 0; i < row - 2 * m - 2; i++) {
+                ret.add(matrix[row - m - i - 2][m]);
+            }
+        }
         return ret;
-//        int x =
-////        //横向
-////
-////        for(int i = 0;)
     }
 }
