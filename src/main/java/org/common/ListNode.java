@@ -24,4 +24,15 @@ package org.common;
     }
 
     public ListNode(int x) { val = x; }
+    public ListNode(int[] x) {
+       ListNode head = this;
+       ListNode node = head;
+       for(int i =0;i<x.length;i++){
+           node.val = x[i];
+           if(i!=x.length-1) {
+               node.next = new ListNode(0);
+               node = node.next;
+           }
+       }
+    }
  }
