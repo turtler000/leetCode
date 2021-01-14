@@ -3,8 +3,9 @@ package org;
 import org.common.ListNode;
 import org.common.TreeNode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.sword.offer_32.Solution;
+import org.sword.offer_33.Solution;
 
+import java.util.List;
 
 
 /**
@@ -17,7 +18,7 @@ TreeNode a = new TreeNode(1);
 a.right = new TreeNode(2);
 a.right.left = new TreeNode(9);
         a.right.right = new TreeNode(4);
-        int[] ret = Solution.levelOrder(a);
+        List ret = Solution.levelOrder(a);
         System.out.println(ret);
     }
 
