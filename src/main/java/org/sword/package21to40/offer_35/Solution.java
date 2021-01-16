@@ -49,7 +49,7 @@ package org.sword.package21to40.offer_35;
  * }
  */
 
-class Solution {
+public class Solution {
     public Node copyRandomList(Node head) {
         if (head == null) {
             return head;
@@ -86,5 +86,32 @@ class Solution {
             }
         }
         return copyHead;
+    }
+    public static Node copyRandomList_1(Node head) {
+        Node headNode = head;
+        //复制链表
+        while(head!=null&&head.next!=null){
+            Node node = head.next;
+            node.next = head.next;
+            head.next = node;
+            head = node.next;
+        }
+        //复制random
+        head = headNode;
+        while(head!=null&&head.next!=null){
+            Node node = head.next;
+            node.random = head.random.next;
+            head = head.next.next;
+        }
+        //分割
+        head = headNode;
+        Node ret = head;
+        while(head!=null&&head.next!=null){
+            ret = head.next;
+            ret.next = ret.next.next;
+            head = head.next.next;
+        }
+        return  ret;
+
     }
 }
