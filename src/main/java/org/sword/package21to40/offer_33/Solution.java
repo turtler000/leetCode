@@ -1,67 +1,58 @@
 package org.sword.package21to40.offer_33;
 
-import org.common.TreeNode;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 /**
- * create by hanhuanyu ON 2021/1/14
- * 从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。
- *
+ * create by hanhuanyu ON 2021/1/15
+ * <p>
+ * 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回 true，否则返回 false。假设输入的数组的任意两个数字都互不相同。
+ * <p>
  *  
- *
- * 例如:
- * 给定二叉树: [3,9,20,null,null,15,7],
- *
- *     3
- *    / \
- *   9  20
- *     /  \
- *    15   7
- * 返回其层次遍历结果：
- *
- * [
- *   [3],
- *   [9,20],
- *   [15,7]
- * ]
- *  
- * 2021/1/14
- *就这，就这？
+ * <p>
+ * 参考以下这颗二叉搜索树：
+ * <p>
+ * 5
+ * / \
+ * 2   6
+ * / \
+ * 1   3
+ * 示例 1：
+ * <p>
+ * 输入: [1,6,3,2,5]
+ * 输出: false
+ * 示例 2：
+ * <p>
+ * 输入: [1,3,2,6,5]
+ * 输出: true
+ * <p>
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * <p>
+ * <p>
+ * 本科不努力，社畜徒伤悲
  */
 public class Solution {
-    public static List<List<Integer>> levelOrder(TreeNode root) {
-        List ret = new ArrayList();
-        List<Integer> list = new ArrayList();
-        if(root==null){
-            return new ArrayList<>();
+    public static boolean verifyPostorder(int[] postorder) {
+        int length = postorder.length;
+        if(length<=1){
+            return true;
         }
-        Queue queueA = new LinkedList();
-        queueA.add(root);
-        Queue queueB = new LinkedList();
-        while(!queueA.isEmpty()){
-            TreeNode node = (TreeNode)queueA.poll();
-            if(node.left!=null){
-                queueB.add(node.left);
-            }
-            if(node.right!=null){
-                queueB.add(node.right);
-            }
-            list.add(node.val);
-            if(queueA.isEmpty()){
-                ret.add(list);
-                list = new ArrayList<>();
-                if(!queueB.isEmpty()){
-                    queueA = queueB;
-                    queueB = new LinkedList();
-                }else{
-                    return ret;
-                }
+        int pre = -1;
+        for (int i = length - 2; i >= 0; i--) {
+            if (postorder[i] < postorder[length - 1]) {
+                pre = i;
+                i = -1;
             }
         }
-        return ret;
+        int[] left = Arrays.copyOfRange(postorder,0,pre+1);
+        int[] right = Arrays.copyOfRange(postorder,pre+1,length-1);
+        for(int leftVal :left){
+            if(leftVal>postorder[length-1]){
+                return false;
+            }
+        }
+        return verifyPostorder(left)&& verifyPostorder(right);
     }
 }

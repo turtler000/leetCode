@@ -1,6 +1,7 @@
 package org.common;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -9,9 +10,9 @@ import java.util.List;
  * list to  Array
  */
 public class Util {
-    /*
-     * list to  Array
-     */
+   // list to array
     List<Integer> a = new ArrayList<>();
-    int[] ret = a.stream().mapToInt(Integer::valueOf).toArray();
+    int[] array = a.stream().mapToInt(Integer::valueOf).toArray();
+    //截取数组
+    int[] range = Arrays.copyOfRange(array,1,array.length);
 }
