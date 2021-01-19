@@ -90,8 +90,8 @@ public class Solution {
     public static Node copyRandomList_1(Node head) {
         Node headNode = head;
         //复制链表
-        while(head!=null&&head.next!=null){
-            Node node = head.next;
+        while(head!=null){
+            Node node = new Node(head.val);
             node.next = head.next;
             head.next = node;
             head = node.next;
@@ -100,18 +100,19 @@ public class Solution {
         head = headNode;
         while(head!=null&&head.next!=null){
             Node node = head.next;
-            node.random = head.random.next;
-            head = head.next.next;
+            node.random = head.random;
+            head = node.next;
         }
         //分割
         head = headNode;
-        Node ret = head;
+        Node ret = head.next;
+        Node retNode = ret;
         while(head!=null&&head.next!=null){
             ret = head.next;
             ret.next = ret.next.next;
             head = head.next.next;
         }
-        return  ret;
+        return  retNode;
 
     }
 }
