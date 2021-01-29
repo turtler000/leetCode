@@ -31,17 +31,36 @@ import java.util.Stack;
  */
 
 public class Solution {
-    public Node treeToDoublyList(Node root) {
+    public static Node treeToDoublyList(Node root) {
+        if(root==null){
+            return null;
+        }
         List<Node> list = new ArrayList();
         Stack<Node> stack = new Stack();
         Node node = root;
-        while(!stack.empty()&&node!=null){
-            if(stack.empty()){
+        while (!stack.empty() || node != null) {
+            if (node!= null) {
                 stack.push(node);
-            }else{
-                list.add(stack.pop());
+                node = node.left;
+            } else {
+                node = stack.pop();
+                list.add(node);
+                node = node.right;
             }
         }
-        return null;
+        for(int i =0;i<list.size();i++){
+            Node item = list.get(i);
+            if(i == 0){
+                item.left = list.get(list.size()-1);
+            }else{
+                item.left = list.get(i-1);
+            }
+            if(i==list.size()-1){
+                item.right = list.get(0);
+            }else{
+                item.right = list.get(i+1);
+            }
+        }
+        return list.get(0);
     }
 }
