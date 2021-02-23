@@ -38,4 +38,7 @@ this ship will carry our bodies safe to shore
 所以这半个月并没有提交记录。
 我的小说也一个字都没动，总之有半个月没有打开编译器了。
 nice~~
+2021/2/23 Tues
+开始工作了
+早上工作时间改到了八点半
 
