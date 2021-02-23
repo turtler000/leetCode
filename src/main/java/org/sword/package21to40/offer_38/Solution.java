@@ -1,9 +1,7 @@
-package org.sword.package21to40.offer_39;
+package org.sword.package21to40.offer_38;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * 剑指 Offer 38. 字符串的排列
