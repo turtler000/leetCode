@@ -2,7 +2,6 @@ package org.sword.package21to40.offer_37;
 
 import org.common.TreeNode;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -39,27 +38,27 @@ public class Solution {
         List list = new ArrayList();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             TreeNode node = queue.peek();
             queue.remove();
-            if(node!=null) {
+            if (node != null) {
                 list.add(node.val);
                 queue.add(node.left);
                 queue.add(node.right);
-            }else{
+            } else {
                 list.add(null);
             }
         }
-        while(list.get(list.size()-1)==null){
-            list.remove(list.size()-1);
+        while (list.get(list.size() - 1) == null) {
+            list.remove(list.size() - 1);
         }
         StringBuilder ret = new StringBuilder();
         ret.append("[");
         for (Object item : list) {
-            if(item!=null) {
+            if (item != null) {
                 ret.append(item.toString());
                 ret.append(",");
-            }else{
+            } else {
                 ret.append("null");
                 ret.append(",");
             }
@@ -71,34 +70,47 @@ public class Solution {
 
     // Decodes your encoded data to tree.
     public static TreeNode deserialize(String data) {
-        if("[]".equals(data)||null==data){
+        if ("[]".equals(data) || null == data) {
             return null;
         }
         String num = data.substring(1, data.length() - 1);
         String[] dataArray = num.split(",");
         List<TreeNode> nodeList = new ArrayList();
         TreeNode root = new TreeNode(Integer.valueOf(dataArray[0]));
-        for(int i = 0;i<dataArray.length;i++){
-            if ("null".equals(dataArray[i])) {
-                nodeList.add(null);
-            }else{
-                nodeList.add(new TreeNode(Integer.valueOf(dataArray[i])));
+        Queue queue = new LinkedList<>();
+        queue.add(root);
+        int flag = 1;
+        while (!queue.isEmpty()) {
+            TreeNode temp = (TreeNode) queue.remove();
+            if(temp==null){
+                continue;
+            }
+            if(flag<dataArray.length) {
+                if("null".equals(dataArray[flag])){
+                    queue.add(null);
+                    temp.left = null;
+                    flag++;
+                }else {
+                    TreeNode left = new TreeNode(Integer.valueOf(dataArray[flag]));
+                    queue.add(left);
+                    temp.left = left;
+                    flag++;
+                }
+            }
+            if(flag<dataArray.length) {
+                if("null".equals(dataArray[flag])){
+                    queue.add(null);
+                    temp.right = null;
+                    flag++;
+                }else {
+                    TreeNode right = new TreeNode(Integer.valueOf(dataArray[flag]));
+                    queue.add(right);
+                    temp.right = right;
+                    flag++;
+                }
             }
         }
-        for(int i = 0;i<nodeList.size();i++){
-            TreeNode item = nodeList.get(i);
-            if(item!=null){
-                if(i*2+1<nodeList.size()) {
-                    item.left = nodeList.get(i * 2+1);
-                }
-                if(i*2+2<nodeList.size()) {
-                    item.right = nodeList.get(i * 2 + 2);
-                }
-            }
-        }
-
-        return nodeList.get(0);
+        return root;
     }
-
 
 }

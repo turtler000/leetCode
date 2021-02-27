@@ -21,7 +21,7 @@ public class Application {
         node.right.left = new TreeNode(1);
         node.right.right = new TreeNode(3);
 
-        TreeNode node1 = Solution.deserialize("[5,2,3,null,null,2,4,3,1]");
+        TreeNode node1 = Solution.deserialize("[1,3,null,null,4]");
         String ret = Solution.serialize(node1);
         System.out.println(ret);
     }
