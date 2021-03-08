@@ -1,7 +1,7 @@
 package org;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.sword.package41to60.offer_47.Solution;
+import org.sword.package41to60.offer_48.Solution;
 
 
 /**
@@ -10,13 +10,10 @@ import org.sword.package41to60.offer_47.Solution;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-        int[][] a = {
-                {1, 3, 1},
-                {1, 5, 1},
-                {4, 2, 1}
-        };
-        int[][] b = {};
-        int x = Solution.maxValue(a);
+
+        String s = "abcabcbb";
+        int x = Solution.lengthOfLongestSubstring(s);
+        int y = Solution.answer(s);
         System.out.println(x);
     }
 // 12 22 25 1225

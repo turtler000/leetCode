@@ -3,6 +3,8 @@ package org.leetcode.questionthree;
 /**
  * 无重复字符最长子串
  * create by hanhuanyu ON 2020/6/30
+ *
+ * {@link org.sword.package41to60.offer_48.Solution}
  */
 public class Solution {
     public static int lengthOfLongestSubstring(String s) {
