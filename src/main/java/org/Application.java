@@ -1,7 +1,7 @@
 package org;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.sword.package41to60.offer_48.Solution;
+import org.sword.package41to60.offer_50.Solution;
 
 
 /**
@@ -12,9 +12,8 @@ public class Application {
     public static void main(String[] args) {
 
         String s = "abcabcbb";
-        int x = Solution.lengthOfLongestSubstring(s);
-        int y = Solution.answer(s);
-        System.out.println(x);
+        char chars = Solution.firstUniqChar(s);
+        System.out.println(chars);
     }
 // 12 22 25 1225
 }
