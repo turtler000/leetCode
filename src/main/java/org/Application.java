@@ -2,7 +2,7 @@ package org;
 
 import org.common.TreeNode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.sword.package41to60.offer_54.Solution;
+import org.sword.package41to60.offer_55.Solution;
 
 
 /**
@@ -19,7 +19,9 @@ public class Application {
         root.left = rootL;
         root.right = rootR;
         rootL.right = rootLR;
-        int ret = Solution.kthLargest(root,1);
+        TreeNode rootItem = new TreeNode(33);
+        int ret = Solution.maxDepth(rootItem);
+        System.out.println(ret);
     }
 // 12 22 25 1225
 }
