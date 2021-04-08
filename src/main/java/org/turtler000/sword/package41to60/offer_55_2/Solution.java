@@ -41,6 +41,29 @@ import org.turtler000.common.TreeNode;
  */
 public class Solution {
     public static boolean isBalanced(TreeNode root) {
-        return true;
+        if(root==null){
+            return true;
+        }
+        if(Math.abs(maxDepth(root.left)-maxDepth(root.right))>=2){
+            return false;
+        }else{
+            return isBalanced(root.left)&&isBalanced(root.right);
+        }
+    }
+
+
+    public static int maxDepth(TreeNode root){
+        if(root == null) return 0;
+        int nLeft = maxDepth(root.left);
+        int nRight = maxDepth(root.right);
+        return nLeft > nRight ? nLeft + 1 : nRight + 1;
+    }
+
+
+    public static int minDepth(TreeNode root){
+        if(root == null) return 0;
+        int nLeft = minDepth(root.left);
+        int nRight = minDepth(root.right);
+        return nLeft < nRight ? nLeft + 1 : nRight + 1;
     }
 }
