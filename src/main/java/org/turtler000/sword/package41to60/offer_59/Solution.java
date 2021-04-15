@@ -1,5 +1,9 @@
 package org.turtler000.sword.package41to60.offer_59;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Queue;
+
 /*/
 剑指 Offer 59 - I. 滑动窗口的最大值
 给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。
@@ -27,7 +31,45 @@ package org.turtler000.sword.package41to60.offer_59;
 注意：本题与主站 239 题相同：https://leetcode-cn.com/problems/sliding-window-maximum/
  */
 public class Solution {
-    public int[] maxSlidingWindow(int[] nums, int k) {
-return new int[0];
+    public static int[] maxSlidingWindow(int[] nums, int k) {
+        if (nums == null || nums.length == 0) {
+            return new int[0];
+        }
+        int[] res = new int[nums.length - k + 1];
+        Deque<Integer> queue = new ArrayDeque<>();
+        for (int i = 0, j = 0; i < nums.length; i++) {
+            if (!queue.isEmpty() && i - queue.peek() >= k) {
+                queue.poll();
+            }
+            while (!queue.isEmpty() && nums[i] > nums[queue.peekLast()]) {
+                queue.pollLast();
+            }
+            queue.offer(i);
+            if (i >= k - 1) {
+                res[j++] = nums[queue.peek()];
+            }
+        }
+        return res;
+    }
+
+    public static int[] maxSlidingWindow_1(int[] nums, int k) {
+        if(nums.length==0){
+            return new int[0];
+        }
+        int[] res = new int[nums.length - k + 1];
+        Deque<Integer> queue = new ArrayDeque<>();
+        for(int i =0;i<nums.length;i++){
+            while(!queue.isEmpty()&&i-queue.peekFirst()>=k){
+                queue.remove();
+            }
+            while(!queue.isEmpty()&&nums[i]>=nums[queue.peekLast()]){
+                queue.pollLast();
+            }
+            queue.offerLast(i);
+            if(i>=k-1) {
+                res[i - k + 1] = nums[queue.peekFirst()];
+            }
+        }
+        return res;
     }
 }
