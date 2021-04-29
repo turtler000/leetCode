@@ -29,9 +29,9 @@ package org.turtler000.sword.package61to68.offer65;
 public class Solution {
     public static int add(int a, int b) {
         int sum = a^b;
-        int add = a&b<<1;
+        int add = (a&b)<<1;
         while(add!=0){
-            int temp = sum&add<<1;
+            int temp = (sum&add)<<1;
             sum = sum^add;
             add = temp;
         }
