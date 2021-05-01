@@ -1,6 +1,7 @@
 package org.turtler000.sword.package41to60.offer_59_2;
 
 import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Queue;
 
 /*
@@ -32,24 +33,38 @@ import java.util.Queue;
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class MaxQueue {
-    Queue queue;
-    Queue max;
+    Queue<Integer> queue;
+    Deque<Integer> max;
 
     public MaxQueue() {
-        this.queue = new ArrayDeque();
-        this.queue = new ArrayDeque();
+        this.queue = new ArrayDeque<>();
+        this.max = new ArrayDeque<>();
     }
 
     public int max_value() {
-        return -1;
+        if (max.isEmpty()) {
+            return -1;
+        }
+        return max.peek();
     }
 
     public void push_back(int value) {
-
+        queue.add(value);
+        while (!max.isEmpty() && max.peekLast() < value) {
+            max.pollLast();
+        }
+        max.add(value);
     }
 
     public int pop_front() {
-      return -1;
+        if(queue.isEmpty()){
+            return -1;
+        }else{
+            if(max.peek().equals(queue.peek())){
+                max.poll();
+            }
+            return queue.poll();
+        }
 
     }
 }

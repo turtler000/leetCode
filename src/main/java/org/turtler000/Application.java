@@ -2,7 +2,7 @@ package org.turtler000;
 
 import org.turtler000.common.TreeNode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.turtler000.sword.package41to60.offer_59.Solution;
+import org.turtler000.sword.package61to68.offer66.Solution;
 
 
 /**
@@ -12,9 +12,9 @@ import org.turtler000.sword.package41to60.offer_59.Solution;
 public class Application {
     public static void main(String[] args) {
 
-        int[] a = {10, 3, 4, 2, 3, 5, 9};
-
-        int[] s = Solution.maxSlidingWindow_1(a, 3);
+        int[] a = {2,3,1,6,2};
+       //boolean s = Solution.isStraight(a);
+        int[] s = Solution.constructArr(a);
         System.out.println(s);
     }
 // 12 22 25 1225
