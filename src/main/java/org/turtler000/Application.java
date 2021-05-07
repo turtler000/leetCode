@@ -5,10 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.turtler000.sword.package61to68.offer66.Solution;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -18,8 +15,10 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
 
-List list = new ArrayList();
-list.add("123");
+Map map = new HashMap();
+map.put(new String("a"),"df");
+map.put(new String("a"),"dfa");
+List list = (List)map.get("a");
 System.out.println(list.get(0));
     }
 // 12 22 25 1225
