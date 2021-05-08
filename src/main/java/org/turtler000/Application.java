@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.turtler000.sword.package61to68.offer66.Solution;
 
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -14,7 +16,6 @@ import java.util.*;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-
 Map map = new HashMap();
 map.put(new String("a"),"df");
 map.put(new String("a"),"dfa");
