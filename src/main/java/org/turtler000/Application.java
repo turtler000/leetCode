@@ -8,6 +8,8 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 /**
@@ -21,6 +23,9 @@ map.put(new String("a"),"df");
 map.put(new String("a"),"dfa");
 List list = (List)map.get("a");
 System.out.println(list.get(0));
+        Lock lock = new ReentrantLock();
+        ThreadLocal threadLocal ;
+
     }
 // 12 22 25 1225
 }
