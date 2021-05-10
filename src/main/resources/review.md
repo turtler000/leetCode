@@ -149,9 +149,60 @@ jdk8使用Parallel Scavenge 收集器，多线程收集器，新生代采用标�
 
 8、类加载器
 
-1.  **BootstrapClassLoader(启动类加载器)** ：最顶层的加载类，由C++实现，负责加载 `%JAVA_HOME%/lib`目录下的jar包和类或者或被 `-Xbootclasspath`参数指定的路径中的所有类。
-2.  **ExtensionClassLoader(扩展类加载器)** ：主要负责加载目录 `%JRE_HOME%/lib/ext` 目录下的jar包和类，或被 `java.ext.dirs` 系统变量所指定的路径下的jar包。
-3.  **AppClassLoader(应用程序类加载器)** ：面向我们用户的加载器，负责加载当前应用classpath下的所有jar包和类。
+1. **BootstrapClassLoader(启动类加载器)** ：最顶层的加载类，由C++实现，负责加载 `%JAVA_HOME%/lib`目录下的jar包和类或者或被 `-Xbootclasspath`参数指定的路径中的所有类。
+
+2. **ExtensionClassLoader(扩展类加载器)** ：主要负责加载目录 `%JRE_HOME%/lib/ext` 目录下的jar包和类，或被 `java.ext.dirs` 系统变量所指定的路径下的jar包。
+
+3. **AppClassLoader(应用程序类加载器)** ：面向我们用户的加载器，负责加载当前应用classpath下的所有jar包和类。
+
+9.堆和方法区
+堆和方法区是所有线程共享的资源，其中堆是进程中最大的一块内存，主要用于存放新创建的对象 (几乎所有对象都在这里分配内存)，方法区主要用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。
+
+#### 3.多线程
+
+1.new,runable,wait,timewait,blocked,terminaled
+
+2.死锁
+
+互斥条件：该资源任意一个时刻只由一个线程占用。
+
+请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。
+
+不剥夺条件:线程已获得的资源在未使用完之前不能被其他线程强行剥夺，只有自己使用完毕后才释放资源。
+
+循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。
+
+3.run和start
+
+ `start()` 会执行线程的相应准备工作，然后自动执行 ` run() ` 方法的内容
+
+调用 `start()` 方法方可启动线程并使线程进入就绪状态，直接执行 `run()` 方法的话不会以多线程的方式执行。
+
+4.`synchronized` 关键字解决的是多个线程之间访问资源的同步性，`synchronized`关键字可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。
+
+5.单例模式
+
+```
+public class Instance {
+    private volatile static Instance uniqueInstance;
+
+    private Instance() {
+    }
+
+    public static Instance getUniqueInstance() {
+        if (uniqueInstance == null) {
+            synchronized (Instance.class) {
+                if (uniqueInstance == null) {
+                    uniqueInstance = new Instance();
+                }
+            }
+        }
+        return uniqueInstance;
+    }
+}
+```
+
+
 
 ### 三、Database
 
