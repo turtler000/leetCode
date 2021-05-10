@@ -64,7 +64,7 @@ QQ: 2535988943
 
 项目管理：maven
 
-数据库：mysql、oracle、redis、openldap、gaussdb
+数据库：mysql、oracle、redis、openldap、PostgreSQL
 
 框架：spring、springboot、springcloud、mybatis、sca、hibernate
 
@@ -72,5 +72,9 @@ QQ: 2535988943
 
 设计：uml、axure
 
+### 其他说明
 
+目前人在济南工作，工作地点没有硬性要求。关于期望薪资在面试中商议。如有幸通过简历筛选请先电话或微信交流后安排远程面试，如果现场面试需要安排到周末。期待能有机会和您共事。
+
+​																																											  2021/5/10
 
