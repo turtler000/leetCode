@@ -12,7 +12,7 @@
 
 持久性（Durability）：一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发生故障也不应该对其有任何影响。
 
-一致性（Consistency）：执行事务前后，数据保持一致，多个事务对同一个数据读取的结果是相同的；
+一致性（Consistency）：执行事务前后，保证事务只能把数据库从一个有效（正确）的状态“转移”到另一个有效（正确）的状态。多个事务对同一个数据读取的结果是相同的。
 
 2.二叉查找树
 
@@ -95,6 +95,8 @@ class clazz = ClassLoader.LoadClass("cn.javaguide.TargetObject");
 
 4.ConcurrentHashMap 线程安全的hashmap。分多个Segment ，每个segment负责一个hashmap用于多线程，默认16个。 
 
+ConcurrentHashMap是线程安全的，那是在他们的内部操作，其外部操作还是需要自己来保证其同步的，特别是静态的ConcurrentHashMap,其有更新和查询的过程，要保证其线程安全，需要syn一个不可变的参数才能保证其原子性
+
 5.List ,Set ,Map
 
 List(对付顺序的好帮手)： 存储的元素是有序的、可重复的。
@@ -158,6 +160,16 @@ jdk8使用Parallel Scavenge 收集器，多线程收集器，新生代采用标�
 9.堆和方法区
 堆和方法区是所有线程共享的资源，其中堆是进程中最大的一块内存，主要用于存放新创建的对象 (几乎所有对象都在这里分配内存)，方法区主要用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。
 
+10.
+
+本地方法栈：非java
+
+虚拟机栈，栈帧的结构分为“局部变量表、操作数栈、动态链接、方法出口“
+
+局部变量表是一组变量值存储空间，用于存放方法参数和方法内部定义的局部变量。
+
+和局部变量区一样，操作数栈也是被组织成一个以字长为单位的数组。但是和前者不同的是，它不是通过索引来访问，而是通过标准的栈操作—压栈和出栈—来访问的
+
 #### 3.多线程
 
 1.new,runable,wait,timewait,blocked,terminaled
@@ -202,7 +214,13 @@ public class Instance {
 }
 ```
 
+6、自旋锁：循环占用cpu CAS,单个变量，ABA，互斥锁：等待 mutex
 
+7、AQS 的全称为（`AbstractQueuedSynchronizer`）
+
+AQS 核心思想是，如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的工作线程，并且将共享资源设置为锁定状态。如果被请求的共享资源被占用，那么就需要一套线程阻塞等待以及被唤醒时锁分配的机制，这个机制 AQS 是用 CLH 队列锁实现的，即将暂时获取不到锁的线程加入到队列中。
+
+维护队列
 
 ### 三、Database
 
@@ -268,6 +286,25 @@ public class Instance {
 
 ​	不用字符串存储日期
 
+8.性能
+
+16k（bigint8+index6)=1170 1170* 1170* 16=2000W 
+
+9.事务，
+
+手动
+BEGIN开始一个事务
+ROLLBACK 事务回滚
+COMMIT 事务确认
+
+自动
+SET AUTOCOMMIT=0 禁止自动提交
+SET AUTOCOMMIT=1 开启自动提交
+
+10、MVCC多版本并发控制
+
+11、覆盖索引，普通索引中存的主键，拿到主键再去**聚集索引**查
+
 #### 2.redis
 
 1.Redis 是不支持 roll back 的，因而不满足原子性的（而且不满足持久性），Redis 事务提供了一种将多个命令请求打包的功能。然后，再按顺序执行打包的所有命令，并且不会被中途打断
@@ -294,8 +331,56 @@ public class Instance {
 
 ​					2.异步更新缓存(基于订阅binlog的同步机制),MySQL binlog增量订阅消费+消息队列+增量数据更新到redis
 
+6、数据结构
+
+String   get 、 set 、 del 、 incr、 decr
+
+Hashmap  每个key对应 hashmap  hget 、hset 、 hdel
+
+List 双端链表 
+
+Set  sset 、srem、scard、smembers、sismember
+
+zset 有序集合 zadd 、 zrange、 zscore
+
 ### 操作系统
 
 1.常用linux命令
 
 ​	top:显示当前正在执行的进程的CPU使用率
+
+### 网络
+
+1.握手
+
+三次握手    1、syn          2、ack/syn      3、ack
+
+四次挥手    1、client:fin       2、server:ack      3.server:fin     4.client:ack
+
+2.网页
+
+1. DNS解析
+2. TCP连接
+3. 发送HTTP请求
+4. 服务器处理请求并返回HTTP报文
+5. 浏览器解析渲染页面
+6. 连接结束
+
+### 框架
+
+#### spring
+
+1.bean生命周期
+
+- Bean 容器找到配置文件中 Spring Bean 的定义。
+- Bean 容器利用 Java Reflection API 创建一个Bean的实例。
+- 如果涉及到一些属性值 利用 `set()`方法设置一些属性值。
+- 如果 Bean 实现了 `BeanNameAware` 接口，调用 `setBeanName()`方法，传入Bean的名字。
+- 如果 Bean 实现了 `BeanClassLoaderAware` 接口，调用 `setBeanClassLoader()`方法，传入 `ClassLoader`对象的实例。
+- 与上面的类似，如果实现了其他 `*.Aware`接口，就调用相应的方法。
+- 如果有和加载这个 Bean 的 Spring 容器相关的 `BeanPostProcessor` 对象，执行`postProcessBeforeInitialization()` 方法
+- 如果Bean实现了`InitializingBean`接口，执行`afterPropertiesSet()`方法。
+- 如果 Bean 在配置文件中的定义包含  init-method 属性，执行指定的方法。
+- 如果有和加载这个 Bean的 Spring 容器相关的 `BeanPostProcessor` 对象，执行`postProcessAfterInitialization()` 方法
+- 当要销毁 Bean 的时候，如果 Bean 实现了 `DisposableBean` 接口，执行 `destroy()` 方法。
+- 当要销毁 Bean 的时候，如果 Bean 在配置文件中的定义包含 destroy-method 属性，执行指定的方法。
