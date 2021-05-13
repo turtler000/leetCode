@@ -15,4 +15,12 @@ public class Util {
     int[] array = a.stream().mapToInt(Integer::valueOf).toArray();
     //截取数组
     int[] range = Arrays.copyOfRange(array,1,array.length);
+
+
+    public static int[] swap(int a, int b) {
+        int[] temp = new int[2];
+        temp[0] = b;
+        temp[1] = a;
+        return temp;
+    }
 }
