@@ -1,8 +1,6 @@
-package org.turtler000.leetcode.interview.isUnique;
+package org.turtler000.leetcode.interview.inteview_0106;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
