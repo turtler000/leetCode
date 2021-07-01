@@ -1,4 +1,4 @@
-package org.turtler000.basicAlgorithm.sort;
+package org.turtler000.basic.sort;
 
 /**
  * @author hanhuanyu

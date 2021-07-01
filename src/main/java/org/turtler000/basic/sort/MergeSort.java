@@ -1,4 +1,4 @@
-package org.turtler000.sort;
+package org.turtler000.basic.sort;
 
 import java.util.Arrays;
 

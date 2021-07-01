@@ -1,9 +1,9 @@
-package org.turtler000.sort;
+package org.turtler000.basic.sort;
 
 /**
  * create by dell ON 2021/5/13
  */
-public class QuickSort {
+public class QuickSort_1 {
     public static void quickSort(int[] nums,int left,int right){
         if (left >= right) {
             return;

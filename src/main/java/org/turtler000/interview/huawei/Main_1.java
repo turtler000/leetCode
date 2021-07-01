@@ -1,4 +1,4 @@
-package org.turtler000.huawei;
+package org.turtler000.interview.huawei;
 
 import java.util.Scanner;
 
