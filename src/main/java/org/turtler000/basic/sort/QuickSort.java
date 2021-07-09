@@ -3,7 +3,7 @@ package org.turtler000.basic.sort;
 /**
  * @author hanhuanyu
  * @date 2021/6/30 10:02
- * @description
+ * @description 快排
  */
 public class QuickSort {
      public static void quickSort(int[] nums,int left ,int right){

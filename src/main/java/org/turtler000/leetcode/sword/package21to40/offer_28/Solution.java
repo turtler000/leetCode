@@ -28,8 +28,6 @@ import org.turtler000.common.TreeNode;
  * <p>
  * 12/29 周二
  * <p>
- * 上周去亳州出差了，回来后过了双休，周六吃了螺狮粉，看了电影沐浴之王，周日炒了鸡胸肉吃。
- * 周一正常工作，今天正常工作。
  */
 public class Solution {
     public static boolean isSymmetric(TreeNode root) {
@@ -62,4 +60,23 @@ public class Solution {
                 return false;
             }
         }
+    public static boolean isSymmetric_1(TreeNode root) {
+        if(root==null){
+            return true;
+        }
+        return isMe(root.left,root.right);
+    }
+    public static Boolean isMe(TreeNode treeA,TreeNode treeB){
+        if(treeA==null&&treeB==null){
+            return true;
+        }else if(treeA==null&&treeB!=null){
+            return false;
+        }else if(treeA!=null&&treeB==null){
+            return false;
+        }  if(treeA.val == treeB.val){
+            return isMe(treeA.left,treeB.right)&&isMe(treeA.right,treeB.left);
+        }else{
+            return false;
+        }
+    }
 }

@@ -11,7 +11,7 @@ public class Instance {
     private Instance() {
     }
 
-    public static Instance getUniqueInstance() {
+    public static  Instance getUniqueInstance() {
         if (uniqueInstance == null) {
             synchronized (Instance.class) {
                 if (uniqueInstance == null) {
@@ -21,4 +21,6 @@ public class Instance {
         }
         return uniqueInstance;
     }
+
 }
+

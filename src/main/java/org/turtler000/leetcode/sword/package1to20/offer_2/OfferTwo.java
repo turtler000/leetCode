@@ -59,4 +59,22 @@ public class OfferTwo {
         }
 return false;
     }
+
+    public static boolean findNumberIn2DArray_1(int[][] matrix, int target) {
+        if(matrix==null||matrix[0].length==0){
+            return false;
+        }
+        int m = matrix.length,n = matrix[0].length;
+        int colum =0,row = n-1;
+        while(colum<=m-1&&row>=0){
+            if(matrix[colum][row]==target){
+                return true;
+            }else if(matrix[colum][row]>target){
+                row--;
+            }else if(matrix[colum][row]<target){
+                colum++;
+            }
+        }
+        return false;
+    }
 }
