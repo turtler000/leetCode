@@ -1,5 +1,7 @@
 package org.turtler000.leetcode.sword.package1to20.offer_7;
 
+import org.turtler000.common.TreeNode;
+
 import java.util.Arrays;
 
 /**
@@ -72,5 +74,19 @@ public class OfferServen {
         nodeRoot.right = buildTree(preorderRight,inorderRight);
         return nodeRoot;
     }
+    public static TreeNode buildTree_1(int[] preorder, int[] inorder) {
+        if(inorder.length==0||preorder.length==0){
+            return null;
+        }
 
+        int headVal = preorder[0];
+        TreeNode head = new TreeNode(headVal);
+        int i = 0;
+        while(inorder[i]!=headVal&&i<inorder.length){
+            i++;
+        }
+        head.left = buildTree_1(Arrays.copyOfRange(preorder,1,i+1),Arrays.copyOfRange(inorder,0,i+1));
+        head.right = buildTree_1(Arrays.copyOfRange(preorder,i+1,preorder.length),Arrays.copyOfRange(inorder,i+1,inorder.length));
+        return head;
+    }
 }

@@ -1,6 +1,7 @@
 package org.turtler000.leetcode.sword.package1to20.offer_8;
 
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * create by hanhuanyu ON 2020/10/31
@@ -15,7 +16,6 @@ import java.util.LinkedList;
 public class CQueue {
     private LinkedList<Integer> stackHead;
     private LinkedList<Integer> stackTail;
-
     public CQueue() {
         this.stackHead = new LinkedList();
         this.stackTail = new LinkedList();
