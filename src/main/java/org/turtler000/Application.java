@@ -3,7 +3,7 @@ package org.turtler000;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.turtler000.common.TreeNode;
-import org.turtler000.interview.Boss.Solution;
+import org.turtler000.leetcode.hot.leetcode_11.Solution;
 import org.turtler000.leetcode.sword.package1to20.offer_11.MinArray;
 import org.turtler000.leetcode.sword.package1to20.offer_2.OfferTwo;
 import org.turtler000.leetcode.sword.package1to20.offer_7.OfferServen;
@@ -22,7 +22,8 @@ import java.util.concurrent.locks.ReentrantLock;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-int[] a = {3,3,1};
-int b = MinArray.minArray_1(a);
+int[] a = {1,8,6,2,5,4,8,3,7};
+int b = Solution.maxArea(a);
+System.out.println(b);
     }
 }
