@@ -1,4 +1,4 @@
-package org.turtler000.leetcode.common.questionfive;
+package org.turtler000.leetcode.common.leetcode_5;
 
 import java.util.ArrayList;
 import java.util.List;

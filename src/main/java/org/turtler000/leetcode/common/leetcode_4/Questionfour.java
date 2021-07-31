@@ -1,4 +1,4 @@
-package org.turtler000.leetcode.common.questionfour;
+package org.turtler000.leetcode.common.leetcode_4;
 
 /**
  * 两个正序数组中位数

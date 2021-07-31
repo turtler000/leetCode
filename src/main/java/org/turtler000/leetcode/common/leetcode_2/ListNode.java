@@ -1,4 +1,4 @@
-package org.turtler000.leetcode.common.questiontwo;
+package org.turtler000.leetcode.common.leetcode_2;
 
 public class ListNode {
     int val;
