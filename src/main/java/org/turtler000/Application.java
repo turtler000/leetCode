@@ -4,7 +4,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.turtler000.common.ListNode;
 import org.turtler000.common.TreeNode;
-import org.turtler000.leetcode.common.leetcode_461.Solution;
+import org.turtler000.leetcode.common.leetcode_78.Solution;
+
+import java.util.List;
 
 
 /**
@@ -13,7 +15,7 @@ import org.turtler000.leetcode.common.leetcode_461.Solution;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-
-        int s = Solution.hammingDistance(1, 4);
+int[] nums = {1,2,3};
+        List s = Solution.subsets(nums);
     }
 }
