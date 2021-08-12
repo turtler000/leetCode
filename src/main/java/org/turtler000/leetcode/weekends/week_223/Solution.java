@@ -1,4 +1,4 @@
-package org.turtler000.weekends.week_223;
+package org.turtler000.leetcode.weekends.week_223;
 /**
 *
 * @Author: Han Huanyu

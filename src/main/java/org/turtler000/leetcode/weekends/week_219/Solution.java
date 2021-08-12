@@ -1,4 +1,4 @@
-package org.turtler000.weekends.week_219;
+package org.turtler000.leetcode.weekends.week_219;
 
 public class Solution {
     public static int minPartitions(String n) {

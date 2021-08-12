@@ -1,4 +1,4 @@
-package org.turtler000.weekends.week_223;
+package org.turtler000.leetcode.weekends.week_223;
 
 import java.util.ArrayList;
 import java.util.HashMap;

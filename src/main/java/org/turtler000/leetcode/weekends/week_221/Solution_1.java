@@ -1,4 +1,4 @@
-package org.turtler000.weekends.week_221;
+package org.turtler000.leetcode.weekends.week_221;
 
 public class Solution_1 {
     public static boolean halvesAreAlike(String s) {

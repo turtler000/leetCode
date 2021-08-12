@@ -1,4 +1,4 @@
-package org.turtler000.everyday;
+package org.turtler000.leetcode.everyday;
 
 /**
  * @author hanhuanyu
