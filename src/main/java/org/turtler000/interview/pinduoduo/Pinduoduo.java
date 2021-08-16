@@ -1,13 +1,18 @@
-package org.turtler000;
+package org.turtler000.interview.pinduoduo;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 /**
+ * 有效括号长度
  * @author hanhuanyu
  * @date 2021/8/16
  * @description
+ *
+ * 第一遍没考虑左括号，倒过来再来一遍不就行了？
+ * 彩笔、
+ *
  */
 public class Pinduoduo {
     public static int Solution(String str) {
