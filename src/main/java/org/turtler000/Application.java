@@ -20,11 +20,14 @@ import java.util.List;
 /**
  * spring-boot startup
  */
-@SpringBootApplication
 public class Application {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        String a ="()((()())()";
+        String b = "()()";
+        String c = ")()())";
+        String d = ")(()))";
+        int aa = Pinduoduo.Solution(d);
     }
 }
