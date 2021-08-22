@@ -66,6 +66,7 @@ public class Solution {
         int res = 0;
         int start = 0; // 窗口开始位置
         for(int i = 0; i < n; i++) {
+            //实际上用charAt方法把位置放数组里了
             int index = s.charAt(i);
             start = Math.max(start, last[index] + 1);
             res   = Math.max(res, i - start + 1);
