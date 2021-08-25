@@ -6,6 +6,8 @@ import java.util.Arrays;
 
 /**
  * create by hanhuanyu ON 2020/9/22
+ *
+ * 重建二叉树
  * 输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。
  * 假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
  * <p>
@@ -88,5 +90,23 @@ public class OfferServen {
         head.left = buildTree_1(Arrays.copyOfRange(preorder,1,i+1),Arrays.copyOfRange(inorder,0,i+1));
         head.right = buildTree_1(Arrays.copyOfRange(preorder,i+1,preorder.length),Arrays.copyOfRange(inorder,i+1,inorder.length));
         return head;
+    }
+
+    public TreeNode buildTree_2(int[] preorder, int[] inorder) {
+        if(preorder.length == 0||inorder.length==0){
+            return null;
+        }
+        int rootVal = preorder[0];
+        TreeNode root = new TreeNode(rootVal);
+        int mid = 0;
+        for(int item: inorder){
+            if(item == rootVal){
+                break;
+            }
+            mid++;
+        }
+        root.left =  buildTree_2(Arrays.copyOfRange(preorder,1,mid+1),Arrays.copyOfRange(inorder,0,mid));
+        root.right =  buildTree_2(Arrays.copyOfRange(preorder,mid+1,preorder.length),Arrays.copyOfRange(inorder,mid+1,inorder.length));
+        return root;
     }
 }
