@@ -1,7 +1,8 @@
 package org.turtler000;
 
+import org.turtler000.common.ListNode;
 import org.turtler000.interview.pinduoduo.Pinduoduo;
-import org.turtler000.leetcode.common.leetcode_42.Solution;
+import org.turtler000.leetcode.common.leetcode_143.Solution;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,8 +16,8 @@ public class Application {
 
 
     public static void main(String[] args) {
-     int[] a = {0,1,0,2,1,0,1,3,2,1,2,1};
-     int trap = Solution.trap(a);
-
+int[] a = {1,2,3,4};
+ListNode list = new ListNode(a);
+Solution.reorderList(list);
     }
 }
