@@ -1,6 +1,7 @@
-package org.turtler000.leetcode.common.leetcode_518;
+package org.turtler000.leetcode.dynamic.leetcode_518;
 
 /**
+ * 动态规划
  * 零钱兑换
  * 给你一个整数数组 coins 表示不同面额的硬币，另给一个整数 amount 表示总金额。
  * <p>

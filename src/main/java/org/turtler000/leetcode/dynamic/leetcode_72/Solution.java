@@ -1,6 +1,8 @@
-package org.turtler000.leetcode.common.leetcode_72;
+package org.turtler000.leetcode.dynamic.leetcode_72;
 
 /**
+ *
+ * 动态规划
  * 72.编辑距离
  *
  * 给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。
