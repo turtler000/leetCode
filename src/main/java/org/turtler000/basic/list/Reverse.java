@@ -3,7 +3,8 @@ package org.turtler000.basic.list;
 import org.turtler000.common.ListNode;
 
 /**
- * create by hanhuanyu ON 2021/7/1
+ *
+ * 翻转链表 * create by hanhuanyu ON 2021/7/1
  *
  * 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
  */
